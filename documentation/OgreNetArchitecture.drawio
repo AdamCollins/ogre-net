@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-05-15T18:26:06.986Z" agent="5.0 (Windows)" etag="L49Yq6uC7yuHYbQCi39e" version="14.6.12" type="github">
+<mxfile host="app.diagrams.net" modified="2021-05-15T20:04:47.996Z" agent="5.0 (Windows)" etag="bLpuvzSznzI0AMRBplqr" version="14.6.12" type="github">
   <diagram id="nww4abMtT4baYe-ESUv9" name="Page-1">
     <mxGraphModel dx="2272" dy="773" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -172,16 +172,16 @@
           <mxGeometry x="-350" y="1060" width="300" height="270" as="geometry" />
         </mxCell>
         <mxCell id="aEJXO6YKgIz_KxnWPFzy-7" value="Node" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
-          <mxGeometry x="10" y="1060" width="160" height="160" as="geometry" />
+          <mxGeometry x="10" y="1060" width="290" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="aEJXO6YKgIz_KxnWPFzy-8" value="- List&lt;Node&gt; onlineNodes" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="aEJXO6YKgIz_KxnWPFzy-7">
-          <mxGeometry y="26" width="160" height="26" as="geometry" />
+        <mxCell id="aEJXO6YKgIz_KxnWPFzy-8" value="- []NodeAddr onlineNodes" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="aEJXO6YKgIz_KxnWPFzy-7">
+          <mxGeometry y="26" width="290" height="26" as="geometry" />
         </mxCell>
         <mxCell id="aEJXO6YKgIz_KxnWPFzy-9" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="aEJXO6YKgIz_KxnWPFzy-7">
-          <mxGeometry y="52" width="160" height="8" as="geometry" />
+          <mxGeometry y="52" width="290" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="aEJXO6YKgIz_KxnWPFzy-10" value="+GetActiveNodesSet()&#xa;&#xa;&#xa;- Ask nodes for neighbours&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="aEJXO6YKgIz_KxnWPFzy-7">
-          <mxGeometry y="60" width="160" height="100" as="geometry" />
+        <mxCell id="aEJXO6YKgIz_KxnWPFzy-10" value="+GetNeighbours()&#xa;- Start(config)&#xa;+ Ping()&#xa;- RequestNeighbours(): []NodeAddr&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="aEJXO6YKgIz_KxnWPFzy-7">
+          <mxGeometry y="60" width="290" height="100" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
