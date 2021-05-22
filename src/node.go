@@ -2,6 +2,7 @@ package src
 
 import (
 	"log"
+	"runtime"
 )
 
 type NodeConfig struct {
@@ -13,79 +14,104 @@ type NodeConfig struct {
 type Node struct {
 	NodeId      string
 	onlineNodes NodeSet
-	handler     INodeRPCHandler
+	connection  INodeConnectionHandler
 	ListenAddr  NodeAddress
 }
 
 func StartListening(config NodeConfig) {
-	rpcHandler := NodeRPCHandler{}
-	StartListeningWithHandler(config, rpcHandler)
+	rpcHandler := NodeConnectionManager{}
+	StartListeningWithHandler(config, &rpcHandler)
 }
 
-func StartListeningWithHandler(config NodeConfig, handler INodeRPCHandler) {
-	// set handler to injected handler
+func StartListeningWithHandler(config NodeConfig, handler INodeConnectionHandler) {
+	// set connection to injected connection
+	node := Node{
+		NodeId:      config.NodeId,
+		onlineNodes: NewNodeSet(),
+		connection:  handler,
+		ListenAddr:  config.ListenAddr,
+	}
 
 	// start listening for RPC requests on config.ListenAddr in new go routine
-	// go handler.Listen()
+	err := handler.Listen(config.ListenAddr, &node)
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	// Add knownNodes to onlineNodes
+	log.Printf("[Node: %v] now listening for connections at %v\n", node.NodeId, node.ListenAddr)
 
-	// Add ListenAddr to OnlineNodes
+	// start advertising for known nodes and then wait for advertisements back
+	initNodes := append(config.KnownNodes, config.ListenAddr)
+	node.AddOnlineNodes(initNodes)
 
-	// Contact nodes in config.KnownNodes
-	//PingNodes()
-
+	// forever yield while waiting for requests
+	for {
+		runtime.Gosched()
+	}
 }
 
-func (node Node) PingOnlineNodes() {
+func (node *Node) AddOnlineNodes(newNodes []NodeAddress) {
 
-	newNeighbourSet := map[NodeAddress]bool{}
+	var newOnlineNodes []NodeAddress
+	// first make sure node is really online
+	for _, newNode := range newNodes {
+		err := node.connection.PingNode(newNode)
+		if err != nil {
+			// node isn't online
+			log.Printf("[Node: %v] tried to add node %v but was found to be offline or non-existent.\n", node.NodeId, newNode)
+			continue
+		}
+		newOnlineNodes = append(newOnlineNodes, newNode)
+	}
+	// next add to onlineNode set
+	node.onlineNodes.AddOnlineNodes(newOnlineNodes)
+	currentOnlineNodes := node.onlineNodes.GetOnlineNodes()
+	log.Printf("[Node: %v] onlineNodes now include %v\n", node.NodeId, currentOnlineNodes)
+
+	// now advertise to neighbours
+	node.Advertise()
+}
+
+func (node *Node) Advertise() {
+
+	// store any nodes that have died
+	var deadNodes []NodeAddress
 
 	// get list of all known online nodes
 	currentOnlineNodes := node.onlineNodes.GetOnlineNodes()
-
-	// ping all known online nodes and ask for neighbours
+	// advertise known nodes to all known online nodes
 	for _, nodeAddr := range currentOnlineNodes {
-		jlkjlkjlkjklkkkkk
-		// get a diff list of neighbours
 
 		// no need to call self. skip
 		if nodeAddr == node.ListenAddr {
 			continue
 		}
 
+		// get a diff list of neighbours
 		// maybe put in go routine?
-		neighbours, err := node.handler.GetNodesNeighbours(nodeAddr, currentOnlineNodes)
+		err := node.connection.Advertise(nodeAddr, currentOnlineNodes)
 		if err != nil {
 			// if neighbour does not respond remove it from list of nodes.
-			log.Printf("[Node]: %v could not find node at %v. Removing from list\n", node.NodeId, nodeAddr)
-			node.onlineNodes.RemoveOnlineNode(nodeAddr)
-		}
-
-		for _, neighbour := range neighbours {
-			if _, ok := newNeighbourSet[neighbour]; ok {
-				newNeighbourSet[neighbour] = true
-			}
+			log.Printf("[Node: %v]:could not find node at %v. Removing from list\n", node.NodeId, nodeAddr)
+			deadNodes = append(deadNodes, nodeAddr)
 		}
 	}
 
-	newNeighbourList := make([]NodeAddress, len(newNeighbourSet))
-	for newNeighbour, _ := range newNeighbourSet {
-
-		// verify that the received node is actually online.
-		err := node.handler.PingNode(newNeighbour)
-		if err == nil {
-			newNeighbourList = append(newNeighbourList, newNeighbour)
-			log.Printf("[Node]: %v is adding node at %v\n", node, newNeighbour)
-		}
+	// if any nodes have died remove them
+	if deadNodes != nil {
+		node.onlineNodes.RemoveOnlineNode(deadNodes)
 	}
 
-	// Add new nodes to online Nodes
-	node.onlineNodes.AddOnlineNodes(newNeighbourList)
-
-	log.Printf("[Node]: %v just finished adding %d neightbours\n", node, len(newNeighbourList))
 }
 
-func (node Node) GetOnlineNodesDiff(callerNodes []NodeAddress) []NodeAddress {
-	return node.onlineNodes.GetSetDiff(callerNodes)
+// checks to see if there are any callerNodes that this node does not already know about.
+// if so, add these nodes
+func (node *Node) CheckForNewNodes(callerNodes []NodeAddress) {
+	log.Printf("[Node: %v] received advertisment with nodes %v\n", node.NodeId, callerNodes)
+	newNodes := node.onlineNodes.GetDifference(callerNodes)
+	if len(newNodes) > 0 {
+		log.Printf("[Node: %v] Adding nodes %v\n", node.NodeId, newNodes)
+
+		node.AddOnlineNodes(newNodes)
+	}
 }
