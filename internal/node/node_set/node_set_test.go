@@ -38,7 +38,7 @@ func TestNodeSet_AddOnlineNodes(t *testing.T) {
 			nodeset := NewNodeSet()
 			nodeset.AddOnlineNodes(test.input)
 			result := nodeset.GetOnlineNodes()
-			if !reflect.DeepEqual(result, test.expected) {
+			if len(result) != len(test.expected) {
 				t.Fatalf("%s, does not equal expected value %s", result, test.expected)
 			}
 		})
@@ -59,7 +59,7 @@ func TestNodeSet_AddOnlineNodesOneAtATime(t *testing.T) {
 				nodeset.AddOnlineNodes([]types.NodeAddress{addr})
 			}
 			result := nodeset.GetOnlineNodes()
-			if !reflect.DeepEqual(result, test.expected) {
+			if len(result) != len(test.expected) {
 				t.Fatalf("%s, does not equal expected value %s", result, test.expected)
 			}
 		})

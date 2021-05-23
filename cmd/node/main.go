@@ -35,6 +35,6 @@ func main() {
 	// get the address to listen on
 	config.ListenAddr = types.NodeAddress(listenAddrStr)
 
-	node.StartListening(config)
+	node.Start(config)
 
 }
