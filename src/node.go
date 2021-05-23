@@ -19,7 +19,7 @@ type Node struct {
 }
 
 func StartListening(config NodeConfig) {
-	rpcHandler := NodeConnectionManager{}
+	rpcHandler := NodeConnectionHandler{}
 	StartListeningWithHandler(config, &rpcHandler)
 }
 
