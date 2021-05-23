@@ -1,0 +1,338 @@
+<mxfile host="app.diagrams.net" modified="2021-05-23T17:50:37.038Z" agent="5.0 (Windows)" etag="BiipSu0ALG22fLTmPbdJ" version="14.7.0" type="github">
+  <diagram id="nww4abMtT4baYe-ESUv9" name="Page-1">
+    <mxGraphModel dx="2035" dy="1744" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="qHuRQXMASM7f3hDafu-y-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=3;dashed=1;" parent="1" source="qHuRQXMASM7f3hDafu-y-1" target="qHuRQXMASM7f3hDafu-y-4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1" y="324" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-15" value="ACK" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="qHuRQXMASM7f3hDafu-y-14" vertex="1" connectable="0">
+          <mxGeometry x="-0.2342" y="1" relative="1" as="geometry">
+            <mxPoint x="-17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0.053;entryY=0.643;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=3;" parent="1" source="qHuRQXMASM7f3hDafu-y-1" target="qHuRQXMASM7f3hDafu-y-47" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-1" value="&lt;b&gt;Entry Node&lt;/b&gt;(Facilitator)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="260" y="260" width="120" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=3;" parent="1" source="qHuRQXMASM7f3hDafu-y-4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="300" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="141" y="272" />
+              <mxPoint x="141" y="300" />
+              <mxPoint x="242" y="300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-11" value="Establish connection with node" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="qHuRQXMASM7f3hDafu-y-5" vertex="1" connectable="0">
+          <mxGeometry x="0.2714" y="1" relative="1" as="geometry">
+            <mxPoint x="-35" y="-11" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.033;entryY=0.538;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;strokeWidth=3;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="qHuRQXMASM7f3hDafu-y-4" target="qHuRQXMASM7f3hDafu-y-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-41" value="Request subset of random nodes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="qHuRQXMASM7f3hDafu-y-40" vertex="1" connectable="0">
+          <mxGeometry x="0.4869" y="1" relative="1" as="geometry">
+            <mxPoint x="-46" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-4" value="" style="shape=mxgraph.cisco.computers_and_peripherals.web_browser;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;" parent="1" vertex="1">
+          <mxGeometry x="-30" y="240" width="62" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;strokeWidth=3;dashed=1;" parent="1" source="qHuRQXMASM7f3hDafu-y-6" target="qHuRQXMASM7f3hDafu-y-45" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-6" value="google.com" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3E;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.traditional_server;" parent="1" vertex="1">
+          <mxGeometry x="890" y="351" width="45" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeWidth=3;" parent="1" source="qHuRQXMASM7f3hDafu-y-1" target="qHuRQXMASM7f3hDafu-y-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-23" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.263;entryY=-0.025;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classicThin;startFill=0;endArrow=classicThin;endFill=0;strokeWidth=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;dashed=1;dashPattern=1 4;" parent="1" source="qHuRQXMASM7f3hDafu-y-47" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="585.8274914544618" y="306.7354122646766" as="sourcePoint" />
+            <mxPoint x="651.04" y="458" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-25" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.688;entryY=-0.062;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classicThin;startFill=0;endArrow=classicThin;endFill=0;strokeWidth=1;dashed=1;dashPattern=1 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="719.7519772494338" y="397.4966313528166" as="sourcePoint" />
+            <mxPoint x="685.04" y="455.03999999999996" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-21" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.763;exitY=-0.012;exitDx=0;exitDy=0;entryX=0.154;entryY=0.962;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=1;endArrow=classicThin;endFill=0;startArrow=classicThin;startFill=0;exitPerimeter=0;dashed=1;dashPattern=1 4;" parent="1" target="qHuRQXMASM7f3hDafu-y-47" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="511.03999999999996" y="369.03999999999996" as="sourcePoint" />
+            <mxPoint x="553.04" y="314" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-22" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.263;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classicThin;startFill=0;endArrow=blockThin;endFill=0;strokeWidth=1;dashed=1;dashPattern=1 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="518.2842712474621" y="438.28427124746213" as="sourcePoint" />
+            <mxPoint x="630" y="481.03999999999996" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-24" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.087;entryY=0.563;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classicThin;startFill=0;endArrow=classicThin;endFill=0;strokeWidth=1;dashed=1;dashPattern=1 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="529.2082994244911" y="402.08108238224577" as="sourcePoint" />
+            <mxPoint x="693.04" y="368.03999999999996" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-27" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=3;shape=mxgraph.mockup.markup.curlyBrace;strokeColor=#999999;rotation=-180;" parent="1" vertex="1">
+          <mxGeometry x="270" y="239" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-28" value="Online Nodes" style="shape=table;html=1;whiteSpace=wrap;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;strokeWidth=3;" parent="1" vertex="1">
+          <mxGeometry x="250" y="80" width="150" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-29" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="qHuRQXMASM7f3hDafu-y-28" vertex="1">
+          <mxGeometry y="30" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-30" value="IP1" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" parent="qHuRQXMASM7f3hDafu-y-29" vertex="1">
+          <mxGeometry width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-31" value="pubkey1" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" parent="qHuRQXMASM7f3hDafu-y-29" vertex="1">
+          <mxGeometry x="70" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-32" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="qHuRQXMASM7f3hDafu-y-28" vertex="1">
+          <mxGeometry y="60" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-33" value="10.0.0.1" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" parent="qHuRQXMASM7f3hDafu-y-32" vertex="1">
+          <mxGeometry width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-34" value="dsdfN32" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" parent="qHuRQXMASM7f3hDafu-y-32" vertex="1">
+          <mxGeometry x="70" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-35" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="qHuRQXMASM7f3hDafu-y-28" vertex="1">
+          <mxGeometry y="90" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-36" value="10.0.0.2" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" parent="qHuRQXMASM7f3hDafu-y-35" vertex="1">
+          <mxGeometry width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-37" value="QE4f23b" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" parent="qHuRQXMASM7f3hDafu-y-35" vertex="1">
+          <mxGeometry x="70" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-38" value="10.0.0.3" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" parent="1" vertex="1">
+          <mxGeometry x="250" y="200" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-39" value="QE4f23b" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" parent="1" vertex="1">
+          <mxGeometry x="320" y="200" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-44" value="&lt;h1&gt;Basic HTTP Request (Happy path)&lt;/h1&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 16px&quot;&gt;Stage 1:&lt;br&gt;&lt;/div&gt;&lt;ol&gt;&lt;li&gt;Client establishes connection with entry node.&lt;/li&gt;&lt;li&gt;&lt;p&gt;When client is ready to make request it requests a random subset of online nodes.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;Client randomly selects n &amp;lt;ip, pubkey&amp;gt; tuples.&lt;/li&gt;&lt;/ol&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 16px&quot;&gt;Stage 2:&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;ol&gt;&lt;li&gt;Client randomly chooses a path of length n.&lt;br&gt;&lt;blockquote&gt;- eg. n3-&amp;gt;n2-&amp;gt;n1-&amp;gt;google.com &lt;br&gt;&lt;/blockquote&gt;&lt;/li&gt;&lt;li&gt;&amp;nbsp;Client creates exit request&amp;nbsp; package with &lt;i&gt;nil &lt;/i&gt;nextHop and http request as data&lt;br&gt;&lt;blockquote&gt;eg. data: &#39;Get index.html google.com&#39;&lt;br&gt;&lt;/blockquote&gt;&lt;/li&gt;&lt;li&gt;&lt;br&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-360" y="170" width="300" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1.026;exitY=0.331;exitDx=0;exitDy=0;strokeWidth=3;exitPerimeter=0;" parent="1" source="qHuRQXMASM7f3hDafu-y-45" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="880" y="360" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="770" y="330" />
+              <mxPoint x="860" y="330" />
+              <mxPoint x="860" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-45" value="Node 3(selected exit node)" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Orc-128.png" parent="1" vertex="1">
+          <mxGeometry x="690" y="311" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-23" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.598;exitY=1.028;exitDx=0;exitDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;strokeWidth=3;exitPerimeter=0;" parent="1" source="qHuRQXMASM7f3hDafu-y-47" target="qHuRQXMASM7f3hDafu-y-49" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1.021;entryY=0.85;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;startArrow=none;startFill=0;endArrow=classic;endFill=1;strokeWidth=3;" parent="1" source="qHuRQXMASM7f3hDafu-y-47" target="qHuRQXMASM7f3hDafu-y-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="268" />
+              <mxPoint x="460" y="481" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-47" value="Node 1" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Orc-128.png" parent="1" vertex="1">
+          <mxGeometry x="520" y="210" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-25" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;strokeWidth=3;" parent="1" source="qHuRQXMASM7f3hDafu-y-48" target="qHuRQXMASM7f3hDafu-y-45" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-48" value="Node 2" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Orc-128.png" parent="1" vertex="1">
+          <mxGeometry x="460" y="370" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-24" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;strokeWidth=3;" parent="1" source="qHuRQXMASM7f3hDafu-y-49" target="qHuRQXMASM7f3hDafu-y-48" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qHuRQXMASM7f3hDafu-y-49" value="Node 4" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Orc-128.png" parent="1" vertex="1">
+          <mxGeometry x="620" y="450" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="MtOyYyAyCkTjW-qshcOA-1" value="" style="endArrow=classic;html=1;exitX=0;exitY=0.654;exitDx=0;exitDy=0;exitPerimeter=0;edgeStyle=orthogonalEdgeStyle;strokeWidth=3;dashed=1;" parent="1" source="qHuRQXMASM7f3hDafu-y-1" target="qHuRQXMASM7f3hDafu-y-4" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="140" y="510" as="sourcePoint" />
+            <mxPoint x="190" y="460" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-10" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MtOyYyAyCkTjW-qshcOA-4" value="Ogre Package" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+          <mxGeometry y="472" width="230" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="MtOyYyAyCkTjW-qshcOA-5" value="+ nextHop: *string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="MtOyYyAyCkTjW-qshcOA-4" vertex="1">
+          <mxGeometry y="26" width="230" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="MtOyYyAyCkTjW-qshcOA-7" value="+ data: []byte | pubkey(Ogre Package)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="MtOyYyAyCkTjW-qshcOA-4" vertex="1">
+          <mxGeometry y="52" width="230" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="aEJXO6YKgIz_KxnWPFzy-1" value="&lt;h1&gt;Facilitator API&lt;br&gt;&lt;/h1&gt;&lt;div&gt;Role: &lt;br&gt;&lt;/div&gt;&lt;ul&gt;&lt;li&gt;introduce clients to network&lt;/li&gt;&lt;li&gt;Maintain a list of active nodes&lt;/li&gt;&lt;li&gt;Gathers nodes by asking current nodes for their neighbours&lt;br&gt;&lt;/li&gt;&lt;li&gt;Provide clients with a sublist of nodes to create a path from&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-350" y="770" width="300" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="aEJXO6YKgIz_KxnWPFzy-2" value="Facilitator" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+          <mxGeometry x="10" y="770" width="160" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="aEJXO6YKgIz_KxnWPFzy-3" value="- List&lt;Node&gt; onlineNodes" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="aEJXO6YKgIz_KxnWPFzy-2" vertex="1">
+          <mxGeometry y="26" width="160" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="aEJXO6YKgIz_KxnWPFzy-4" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="aEJXO6YKgIz_KxnWPFzy-2" vertex="1">
+          <mxGeometry y="52" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="aEJXO6YKgIz_KxnWPFzy-5" value="+GetActiveNodesSet()&#xa;&#xa;&#xa;- Ask nodes for neighbours&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="aEJXO6YKgIz_KxnWPFzy-2" vertex="1">
+          <mxGeometry y="60" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="aEJXO6YKgIz_KxnWPFzy-6" value="&lt;h1&gt;Node API&lt;br&gt;&lt;/h1&gt;&lt;div&gt;Role: &lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;Listen for requests and forward to nextHop node&lt;/li&gt;&lt;li&gt;Advertise online nodes to neighbours&lt;/li&gt;&lt;li&gt;Ping onlineNodes to ensure they are online&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-350" y="1060" width="300" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="aEJXO6YKgIz_KxnWPFzy-7" value="Node" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+          <mxGeometry x="10" y="1060" width="290" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="aEJXO6YKgIz_KxnWPFzy-8" value="- []NodeAddr onlineNodes&#xa;- NodeAddr listenAddr &#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="aEJXO6YKgIz_KxnWPFzy-7" vertex="1">
+          <mxGeometry y="26" width="290" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="aEJXO6YKgIz_KxnWPFzy-9" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="aEJXO6YKgIz_KxnWPFzy-7" vertex="1">
+          <mxGeometry y="70" width="290" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="aEJXO6YKgIz_KxnWPFzy-10" value="- Start(config)&#xa;- Ping()&#xa;+ PingHandler()&#xa;- Advertise(target NodeAddr, knownNodes)&#xa;+AdvertiseHandler()&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="aEJXO6YKgIz_KxnWPFzy-7" vertex="1">
+          <mxGeometry y="78" width="290" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-1" value="" style="endArrow=none;html=1;strokeWidth=5;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-350" y="682" as="sourcePoint" />
+            <mxPoint x="920" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-8" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.763;exitY=-0.012;exitDx=0;exitDy=0;strokeWidth=1;endArrow=classicThin;endFill=0;startArrow=classicThin;startFill=0;exitPerimeter=0;dashed=1;dashPattern=1 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="69.79999999999997" as="sourcePoint" />
+            <mxPoint x="580" y="69.8" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-10" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=2;perimeterSpacing=0;" parent="1" vertex="1">
+          <mxGeometry x="438" y="50" width="172" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-13" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.763;exitY=-0.012;exitDx=0;exitDy=0;strokeWidth=3;endArrow=classicThin;endFill=0;startArrow=none;startFill=0;exitPerimeter=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520.0000000000001" y="109.99999999999994" as="sourcePoint" />
+            <mxPoint x="580.0000000000001" y="109.99999999999994" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-16" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.763;exitY=-0.012;exitDx=0;exitDy=0;strokeWidth=3;endArrow=none;endFill=0;startArrow=classic;startFill=1;exitPerimeter=0;dashed=1;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="149.99999999999997" as="sourcePoint" />
+            <mxPoint x="580" y="149.99999999999997" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-19" value="Connected" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="450" y="60" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-20" value="&lt;div align=&quot;left&quot;&gt;Request&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="450" y="100" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-22" value="Response" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="450" y="140" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-31" value="&lt;font style=&quot;font-size: 48px&quot;&gt;&lt;b&gt;API&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="1" vertex="1">
+          <mxGeometry x="-350" y="640" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-32" value="" style="endArrow=none;html=1;strokeWidth=5;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-360" y="12" as="sourcePoint" />
+            <mxPoint x="910" y="10" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-33" value="&lt;font style=&quot;font-size: 48px&quot;&gt;&lt;b&gt;Request flow&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="1" vertex="1">
+          <mxGeometry x="-370" y="-30" width="310" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-34" value="" style="endArrow=none;html=1;strokeWidth=5;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-360" y="1332" as="sourcePoint" />
+            <mxPoint x="910" y="1330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-35" value="&lt;font style=&quot;font-size: 48px&quot;&gt;&lt;b&gt;Advertising Protocol&lt;/b&gt;&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="1" vertex="1">
+          <mxGeometry x="-360" y="1290" width="490" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-38" value="Node 2" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Orc-128.png" parent="1" vertex="1">
+          <mxGeometry x="160" y="1510" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-39" value="new Node" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Orc-128.png" parent="1" vertex="1">
+          <mxGeometry y="1409" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-40" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.263;entryY=-0.025;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classicThin;startFill=0;endArrow=classicThin;endFill=0;strokeWidth=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;dashed=1;dashPattern=1 4;" parent="1" source="x9qJlsMR9GIvrMDWS-SB-47" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="287.7874914544618" y="1456.7354122646766" as="sourcePoint" />
+            <mxPoint x="353" y="1608" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-41" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.688;entryY=-0.062;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classicThin;startFill=0;endArrow=classicThin;endFill=0;strokeWidth=1;dashed=1;dashPattern=1 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="421.71197724943386" y="1547.4966313528166" as="sourcePoint" />
+            <mxPoint x="387" y="1605.04" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-42" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.763;exitY=-0.012;exitDx=0;exitDy=0;entryX=0.154;entryY=0.962;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=1;endArrow=classicThin;endFill=0;startArrow=classicThin;startFill=0;exitPerimeter=0;dashed=1;dashPattern=1 4;" parent="1" target="x9qJlsMR9GIvrMDWS-SB-47" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="212.99999999999994" y="1519.04" as="sourcePoint" />
+            <mxPoint x="255" y="1464" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-43" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.263;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classicThin;startFill=0;endArrow=blockThin;endFill=0;strokeWidth=1;dashed=1;dashPattern=1 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220.2442712474621" y="1588.2842712474621" as="sourcePoint" />
+            <mxPoint x="331.96000000000004" y="1631.04" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-44" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.087;entryY=0.563;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=classicThin;startFill=0;endArrow=classicThin;endFill=0;strokeWidth=1;dashed=1;dashPattern=1 4;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="231.16829942449112" y="1552.0810823822458" as="sourcePoint" />
+            <mxPoint x="395" y="1518.04" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-45" value="Node 3" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Orc-128.png" parent="1" vertex="1">
+          <mxGeometry x="391.96000000000004" y="1461" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-47" value="Node 1" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Orc-128.png" parent="1" vertex="1">
+          <mxGeometry x="221.95999999999998" y="1360" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-50" value="Node 4" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Orc-128.png" parent="1" vertex="1">
+          <mxGeometry x="321.96000000000004" y="1600" width="78" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-52" value="&lt;font style=&quot;font-size: 43px&quot;&gt;+&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#97D077;" parent="1" vertex="1">
+          <mxGeometry x="-10" y="1400" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-53" value="&lt;h1&gt;New Node Joining&lt;br&gt;&lt;/h1&gt;&lt;div&gt;For a node to join the network it needs to know the address of at least one existing node.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;ol&gt;&lt;li&gt;On &lt;font face=&quot;Lucida Console&quot;&gt;Start()&lt;/font&gt; the new node(Node n) adds its &lt;font face=&quot;Lucida Console&quot;&gt;listenAddr &lt;/font&gt;and &lt;font face=&quot;Lucida Console&quot;&gt;knownAddr &lt;/font&gt;to its &lt;font face=&quot;Lucida Console&quot;&gt;onlineNodes &lt;/font&gt;set. eg.&lt;font face=&quot;Lucida Console&quot;&gt; [lisenAddr, knownAddr]&lt;/font&gt;&lt;br&gt;&lt;br&gt;&lt;/li&gt;&lt;li&gt;Node n initiates an advertisement all of its &lt;font face=&quot;Lucida Console&quot;&gt;onlineNodes &lt;font face=&quot;Helvetica&quot;&gt;with &lt;/font&gt;advertise(onlineNodes)&lt;br&gt;&lt;br&gt;&lt;/font&gt;&lt;/li&gt;&lt;li&gt;&lt;font face=&quot;Lucida Console&quot;&gt;&lt;font face=&quot;Helvetica&quot;&gt;Upon receiving an adverisement with new nodes the recipient node will initia&lt;/font&gt;te &lt;font face=&quot;Helvetica&quot;&gt;its own&lt;/font&gt; advertise(onlineNodes).&lt;br&gt;&lt;/font&gt;&lt;/li&gt;&lt;/ol&gt;&lt;ol&gt;&lt;/ol&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-360" y="1380" width="300" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-59" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.markup.curlyBrace;strokeColor=#999999;fontColor=#97D077;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry y="1509" width="81" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="x9qJlsMR9GIvrMDWS-SB-61" value="&lt;font face=&quot;Lucida Console&quot;&gt;[new Node, Node1,...]&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-38.620000000000005" y="1529" width="155.25" height="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
