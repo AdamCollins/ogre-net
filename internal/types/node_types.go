@@ -1,9 +1,10 @@
-package src
+package types
 
 type NodeAddress string
 
+
 type INodeConnectionHandler interface {
-	Listen(address NodeAddress, callbackNode *Node) error
+	Listen(address NodeAddress) error
 	Advertise(address NodeAddress, knownAddresses []NodeAddress) error
 	PingNode(address NodeAddress) error
 }

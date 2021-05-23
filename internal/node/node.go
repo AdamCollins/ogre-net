@@ -1,39 +1,43 @@
-package src
+package node
 
 import (
+	"github.com/AdamCollins/ogre-net/internal/node/node_set"
+	"github.com/AdamCollins/ogre-net/internal/types"
 	"log"
 	"sync"
 )
 
-type NodeConfig struct {
+type Config struct {
 	NodeId     string
-	KnownNodes []NodeAddress
-	ListenAddr NodeAddress
+	KnownNodes []types.NodeAddress
+	ListenAddr types.NodeAddress
 }
 
 type Node struct {
 	NodeId      string
-	onlineNodes NodeSet
-	connection  INodeConnectionHandler
-	ListenAddr  NodeAddress
+	onlineNodes node_set.NodeSet
+	conManager  types.INodeConnectionHandler
+	ListenAddr  types.NodeAddress
 }
 
-func StartListening(config NodeConfig) {
-	rpcHandler := NodeConnectionHandler{}
-	StartListeningWithHandler(config, &rpcHandler)
+func StartListening(config Config) {
+	node := Node{}
+	rpcHandler := ConnectionHandler{}
+	rpcHandler.SetCallbackNode(&node)
+	StartListeningWithHandler(config, &rpcHandler, &node)
 }
 
-func StartListeningWithHandler(config NodeConfig, handler INodeConnectionHandler) {
-	// set connection to injected connection
-	node := Node{
+func StartListeningWithHandler(config Config, handler types.INodeConnectionHandler,node *Node) {
+	// set conManager to injected conManager
+	*node = Node{
 		NodeId:      config.NodeId,
-		onlineNodes: NewNodeSet(),
-		connection:  handler,
+		onlineNodes: node_set.NewNodeSet(),
+		conManager:  handler,
 		ListenAddr:  config.ListenAddr,
 	}
 
 	// start listening for RPC requests on config.ListenAddr in new go routine
-	err := handler.Listen(config.ListenAddr, &node)
+	err := node.conManager.Listen(config.ListenAddr)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -50,12 +54,12 @@ func StartListeningWithHandler(config NodeConfig, handler INodeConnectionHandler
 	wg.Wait()
 }
 
-func (node *Node) AddOnlineNodes(newNodes []NodeAddress) {
+func (node *Node) AddOnlineNodes(newNodes []types.NodeAddress) {
 
-	var newOnlineNodes []NodeAddress
+	var newOnlineNodes []types.NodeAddress
 	// first make sure node is really online
 	for _, newNode := range newNodes {
-		err := node.connection.PingNode(newNode)
+		err := node.conManager.PingNode(newNode)
 		if err != nil {
 			// node isn't online
 			log.Printf("[Node: %v] tried to add node %v but was found to be offline or non-existent.\n", node.NodeId, newNode)
@@ -75,7 +79,7 @@ func (node *Node) AddOnlineNodes(newNodes []NodeAddress) {
 func (node *Node) Advertise() {
 
 	// store any nodes that have died
-	var deadNodes []NodeAddress
+	var deadNodes []types.NodeAddress
 
 	// get list of all known online nodes
 	currentOnlineNodes := node.onlineNodes.GetOnlineNodes()
@@ -89,7 +93,7 @@ func (node *Node) Advertise() {
 
 		// get a diff list of neighbours
 		// maybe put in go routine?
-		err := node.connection.Advertise(nodeAddr, currentOnlineNodes)
+		err := node.conManager.Advertise(nodeAddr, currentOnlineNodes)
 		if err != nil {
 			// if neighbour does not respond remove it from list of nodes.
 			log.Printf("[Node: %v]:could not find node at %v. Removing from list\n", node.NodeId, nodeAddr)
@@ -106,7 +110,7 @@ func (node *Node) Advertise() {
 
 // checks to see if there are any callerNodes that this node does not already know about.
 // if so, add these nodes
-func (node *Node) CheckForNewNodes(callerNodes []NodeAddress) {
+func (node *Node) CheckForNewNodes(callerNodes []types.NodeAddress) {
 	log.Printf("[Node: %v] received advertisment with nodes %v\n", node.NodeId, callerNodes)
 	newNodes := node.onlineNodes.GetDifference(callerNodes)
 	if len(newNodes) > 0 {

@@ -2,7 +2,8 @@ package main
 
 import (
 	"flag"
-	src "github.com/AdamCollins/ogre-net"
+	"github.com/AdamCollins/ogre-net/internal/node"
+	"github.com/AdamCollins/ogre-net/internal/types"
 	"log"
 	"strings"
 )
@@ -10,7 +11,7 @@ import (
 func main() {
 
 	// get Node Id
-	var config src.NodeConfig
+	var config node.Config
 	var knownNodeStr string
 	// get known Nodes
 	var listenAddrStr string
@@ -25,15 +26,15 @@ func main() {
 	}
 
 	// get known nodes
-	var knownNodes []src.NodeAddress
+	var knownNodes []types.NodeAddress
 	for _, addr := range strings.Split(knownNodeStr, ",") {
-		knownNodes = append(knownNodes, src.NodeAddress(addr))
+		knownNodes = append(knownNodes, types.NodeAddress(addr))
 	}
 	config.KnownNodes = knownNodes
 
 	// get the address to listen on
-	config.ListenAddr = src.NodeAddress(listenAddrStr)
+	config.ListenAddr = types.NodeAddress(listenAddrStr)
 
-	src.StartListening(config)
+	node.StartListening(config)
 
 }

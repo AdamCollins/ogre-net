@@ -1,12 +1,14 @@
-package src
+package node
 
 import (
+	"errors"
+	"github.com/AdamCollins/ogre-net/internal/types"
 	"log"
 	"net"
 	"net/rpc"
 )
 
-type NodeConnectionHandler struct {
+type ConnectionHandler struct {
 	receiver RPCReceiver
 }
 
@@ -14,8 +16,14 @@ type RPCReceiver struct {
 	node *Node
 }
 
-func (manager *NodeConnectionHandler) Listen(address NodeAddress, callbackNode *Node) error {
-	manager.receiver.node = callbackNode
+func (manager *ConnectionHandler) SetCallbackNode(node *Node){
+	manager.receiver.node = node
+}
+
+func (manager *ConnectionHandler) Listen(address types.NodeAddress) error {
+	if manager.receiver.node==nil{
+		return errors.New("cannot listen to conManager before SetCallbackNode(node *Node) is called");
+	}
 	server := rpc.NewServer()
 	err := server.Register(manager.receiver)
 
@@ -35,7 +43,7 @@ func (manager *NodeConnectionHandler) Listen(address NodeAddress, callbackNode *
 }
 
 // requests ack from node to ensure that it is still online
-func (manager NodeConnectionHandler) PingNode(address NodeAddress) error {
+func (manager ConnectionHandler) PingNode(address types.NodeAddress) error {
 	log.Printf("[Node %v] pinging %v\n", manager.receiver.node.NodeId, address)
 	conn, err := rpc.Dial("tcp", string(address))
 	if err != nil {
@@ -60,7 +68,7 @@ func (receiver RPCReceiver) PingRPCHandler(args bool, results *bool) error {
 }
 
 // pings node at address and returns any neighbour nodes of target not included in NodeAddress
-func (manager NodeConnectionHandler) Advertise(target NodeAddress, knownNodes []NodeAddress) error {
+func (manager ConnectionHandler) Advertise(target types.NodeAddress, knownNodes []types.NodeAddress) error {
 	// make rpccall to target.AdvertiseHandler(knownNodes)
 	conn, err := rpc.Dial("tcp", string(target))
 	if err != nil {
@@ -77,7 +85,7 @@ func (manager NodeConnectionHandler) Advertise(target NodeAddress, knownNodes []
 }
 
 // handle Get Neighbours RPC request
-func (receiver RPCReceiver) AdvertiseHandler(args []NodeAddress, results *bool) error {
+func (receiver RPCReceiver) AdvertiseHandler(args []types.NodeAddress, results *bool) error {
 
 	go receiver.node.CheckForNewNodes(args)
 
