@@ -56,15 +56,15 @@ func (handler NodeConnectionManager) PingRPCHandler(args bool, results *bool) er
 }
 
 // pings node at address and returns any neighbour nodes of target not included in NodeAddress
-func (handler NodeConnectionManager) Advertise(address NodeAddress, knownNodes []NodeAddress) error {
-	// make rpccall to address.AdvertiseRPCHandler(knownNodes)
-	conn, err := rpc.Dial("tcp", string(address))
+func (handler NodeConnectionManager) Advertise(target NodeAddress, knownNodes []NodeAddress) error {
+	// make rpccall to target.AdvertiseHandler(knownNodes)
+	conn, err := rpc.Dial("tcp", string(target))
 	if err != nil {
-		log.Printf("[Node RPC] %v Could not conect to node at %v", handler.node.NodeId, address)
+		log.Printf("[Node RPC] %v Could not conect to node at %v", handler.node.NodeId, target)
 		return err
 	}
 	ack := false
-	err = conn.Call("NodeConnectionManager.AdvertiseRPCHandler", knownNodes, &ack)
+	err = conn.Call("NodeConnectionManager.AdvertiseHandler", knownNodes, &ack)
 	if err != nil {
 		return err
 	}
@@ -73,7 +73,7 @@ func (handler NodeConnectionManager) Advertise(address NodeAddress, knownNodes [
 }
 
 // handle Get Neighbours RPC request
-func (handler NodeConnectionManager) AdvertiseRPCHandler(args []NodeAddress, results *bool) error {
+func (handler NodeConnectionManager) AdvertiseHandler(args []NodeAddress, results *bool) error {
 
 	go handler.node.CheckForNewNodes(args)
 

@@ -2,7 +2,7 @@ package src
 
 import (
 	"log"
-	"runtime"
+	"sync"
 )
 
 type NodeConfig struct {
@@ -44,10 +44,10 @@ func StartListeningWithHandler(config NodeConfig, handler INodeConnectionHandler
 	initNodes := append(config.KnownNodes, config.ListenAddr)
 	node.AddOnlineNodes(initNodes)
 
-	// forever yield while waiting for requests
-	for {
-		runtime.Gosched()
-	}
+	// forever yield while waiting for requests\
+	var wg sync.WaitGroup
+	wg.Add(1)
+	wg.Wait()
 }
 
 func (node *Node) AddOnlineNodes(newNodes []NodeAddress) {
