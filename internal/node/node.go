@@ -16,28 +16,32 @@ type Config struct {
 type Node struct {
 	NodeId      string
 	onlineNodes node_set.NodeSet
-	conManager  types.INodeConnectionHandler
+	conHandler  types.INodeConnectionHandler
 	ListenAddr  types.NodeAddress
 }
 
-func StartListening(config Config) {
+func Start(config Config) {
 	node := Node{}
 	rpcHandler := ConnectionHandler{}
 	rpcHandler.SetCallbackNode(&node)
-	StartListeningWithHandler(config, &rpcHandler, &node)
+	StartWithHandler(config, &rpcHandler, &node)
+	// forever yield while waiting for requests
+	var wg sync.WaitGroup
+	wg.Add(1)
+	wg.Wait()
 }
 
-func StartListeningWithHandler(config Config, handler types.INodeConnectionHandler,node *Node) {
-	// set conManager to injected conManager
+func StartWithHandler(config Config, handler types.INodeConnectionHandler, node *Node) {
+	// set conHandler to injected conHandler
 	*node = Node{
 		NodeId:      config.NodeId,
 		onlineNodes: node_set.NewNodeSet(),
-		conManager:  handler,
+		conHandler:  handler,
 		ListenAddr:  config.ListenAddr,
 	}
 
 	// start listening for RPC requests on config.ListenAddr in new go routine
-	err := node.conManager.Listen(config.ListenAddr)
+	err := node.conHandler.Listen(config.ListenAddr)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -47,11 +51,6 @@ func StartListeningWithHandler(config Config, handler types.INodeConnectionHandl
 	// start advertising for known nodes and then wait for advertisements back
 	initNodes := append(config.KnownNodes, config.ListenAddr)
 	node.AddOnlineNodes(initNodes)
-
-	// forever yield while waiting for requests\
-	var wg sync.WaitGroup
-	wg.Add(1)
-	wg.Wait()
 }
 
 func (node *Node) AddOnlineNodes(newNodes []types.NodeAddress) {
@@ -59,7 +58,7 @@ func (node *Node) AddOnlineNodes(newNodes []types.NodeAddress) {
 	var newOnlineNodes []types.NodeAddress
 	// first make sure node is really online
 	for _, newNode := range newNodes {
-		err := node.conManager.PingNode(newNode)
+		err := node.conHandler.PingNode(newNode)
 		if err != nil {
 			// node isn't online
 			log.Printf("[Node: %v] tried to add node %v but was found to be offline or non-existent.\n", node.NodeId, newNode)
@@ -93,7 +92,7 @@ func (node *Node) Advertise() {
 
 		// get a diff list of neighbours
 		// maybe put in go routine?
-		err := node.conManager.Advertise(nodeAddr, currentOnlineNodes)
+		err := node.conHandler.Advertise(nodeAddr, currentOnlineNodes)
 		if err != nil {
 			// if neighbour does not respond remove it from list of nodes.
 			log.Printf("[Node: %v]:could not find node at %v. Removing from list\n", node.NodeId, nodeAddr)

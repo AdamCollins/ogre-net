@@ -16,13 +16,13 @@ type RPCReceiver struct {
 	node *Node
 }
 
-func (manager *ConnectionHandler) SetCallbackNode(node *Node){
+func (manager *ConnectionHandler) SetCallbackNode(node *Node) {
 	manager.receiver.node = node
 }
 
 func (manager *ConnectionHandler) Listen(address types.NodeAddress) error {
-	if manager.receiver.node==nil{
-		return errors.New("cannot listen to conManager before SetCallbackNode(node *Node) is called");
+	if manager.receiver.node == nil {
+		return errors.New("cannot listen to conHandler before SetCallbackNode(node *Node) is called")
 	}
 	server := rpc.NewServer()
 	err := server.Register(manager.receiver)
@@ -68,15 +68,15 @@ func (receiver RPCReceiver) PingRPCHandler(args bool, results *bool) error {
 }
 
 // pings node at address and returns any neighbour nodes of target not included in NodeAddress
-func (manager ConnectionHandler) Advertise(target types.NodeAddress, knownNodes []types.NodeAddress) error {
-	// make rpccall to target.AdvertiseHandler(knownNodes)
+func (manager ConnectionHandler) Advertise(target types.NodeAddress, advertising []types.NodeAddress) error {
+	// make rpccall to target.AdvertiseHandler(advertising)
 	conn, err := rpc.Dial("tcp", string(target))
 	if err != nil {
 		log.Printf("[Node RPC] %v Could not conect to node at %v", manager.receiver.node.NodeId, target)
 		return err
 	}
 	ack := false
-	err = conn.Call("RPCReceiver.AdvertiseHandler", knownNodes, &ack)
+	err = conn.Call("RPCReceiver.AdvertiseHandler", advertising, &ack)
 	if err != nil {
 		return err
 	}
