@@ -44,6 +44,11 @@ func (manager *ConnectionHandler) Listen(address types.NodeAddress) error {
 
 // requests ack from node to ensure that it is still online
 func (manager ConnectionHandler) PingNode(address types.NodeAddress) error {
+	// don't bother taking up network time if targeting self
+	if manager.receiver.node.ListenAddr == address {
+		return nil
+	}
+
 	log.Printf("[Node %v] pinging %v\n", manager.receiver.node.NodeId, address)
 	conn, err := rpc.Dial("tcp", string(address))
 	if err != nil {

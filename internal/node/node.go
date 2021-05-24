@@ -6,7 +6,10 @@ import (
 	"github.com/AdamCollins/ogre-net/internal/utils"
 	"log"
 	"sync"
+	"time"
 )
+
+var Constants = types.Constant
 
 type Config struct {
 	NodeId     string
@@ -25,11 +28,18 @@ func Start(config Config) {
 	node := Node{}
 	rpcHandler := ConnectionHandler{}
 	rpcHandler.SetCallbackNode(&node)
+
+	// start Listening for requests
 	StartWithHandler(config, &rpcHandler, &node)
-	// forever yield while waiting for requests
-	var wg sync.WaitGroup
-	wg.Add(1)
-	wg.Wait()
+
+	ticker := time.NewTicker(time.Duration(Constants.PingInterval) * time.Millisecond)
+	// continuously check that nodes are still online
+	for {
+		select {
+		case <-ticker.C:
+			node.PingAllOnlineNodes()
+		}
+	}
 }
 
 func StartWithHandler(config Config, handler types.INodeConnectionHandler, node *Node) {
@@ -118,7 +128,9 @@ func (node *Node) PingAllOnlineNodes() {
 	// ping all online nodes
 	_, died := node.pingNodes(node.onlineNodes.GetNodes())
 	// remove any that have died
-	node.onlineNodes.RemoveOnlineNodes(died)
+	if len(died) > 0 {
+		node.onlineNodes.RemoveOnlineNodes(died)
+	}
 }
 
 // pings provided nodes and returns a list of alive nodes and a list of dead nodes

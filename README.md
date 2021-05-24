@@ -118,7 +118,7 @@ This is an example of how to list things you need to use the software and how to
    ```
 2. Start up node
    ```sh
-   ./build/node -id=<NodeID> -listen=<port to lisen on eg. :3001> -known=<address of prexisting node eg. :3000 (leave blank if first) >
+   ./build/node -id=<NodeID> -listen=<port to lisen on eg. :3001> -knows=<address of prexisting node eg. :3000 (leave blank if first) >
    ```
 
 
