@@ -87,7 +87,7 @@ func (manager ConnectionHandler) Advertise(target types.NodeAddress, advertising
 // handle Get Neighbours RPC request
 func (receiver RPCReceiver) AdvertiseHandler(args []types.NodeAddress, results *bool) error {
 
-	go receiver.node.CheckForNewNodes(args)
+	go receiver.node.ReceiveAdvertisement(args)
 
 	*results = true
 	return nil

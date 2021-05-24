@@ -20,7 +20,7 @@ type DiffTest struct {
 
 func TestNodeSet_NewNodeSet(t *testing.T) {
 	nodeset := NewNodeSet()
-	entries := nodeset.GetOnlineNodes()
+	entries := nodeset.GetNodes()
 	if len(entries) != 0 {
 		t.Fatalf("set was not initialized correctly")
 	}
@@ -37,7 +37,7 @@ func TestNodeSet_AddOnlineNodes(t *testing.T) {
 		t.Run(fmt.Sprintf("%v", test.input), func(t *testing.T) {
 			nodeset := NewNodeSet()
 			nodeset.AddOnlineNodes(test.input)
-			result := nodeset.GetOnlineNodes()
+			result := nodeset.GetNodes()
 			if len(result) != len(test.expected) {
 				t.Fatalf("%s, does not equal expected value %s", result, test.expected)
 			}
@@ -58,7 +58,7 @@ func TestNodeSet_AddOnlineNodesOneAtATime(t *testing.T) {
 			for _, addr := range test.input {
 				nodeset.AddOnlineNodes([]types.NodeAddress{addr})
 			}
-			result := nodeset.GetOnlineNodes()
+			result := nodeset.GetNodes()
 			if len(result) != len(test.expected) {
 				t.Fatalf("%s, does not equal expected value %s", result, test.expected)
 			}

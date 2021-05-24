@@ -29,8 +29,8 @@ func (m *MockConnectionHandlerAllOffline) Listen(address types.NodeAddress) erro
 
 func (m *MockConnectionHandlerAllOffline) Advertise(address types.NodeAddress, knownAddresses []types.NodeAddress) error {
 	ad := AdRequest{
-		Target:      address,
-		Advertising: knownAddresses,
+		Target:        address,
+		Advertisement: knownAddresses,
 	}
 	m.AdvertiseRequestLog = append(m.AdvertiseRequestLog, ad)
 

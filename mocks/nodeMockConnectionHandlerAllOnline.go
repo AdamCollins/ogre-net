@@ -3,8 +3,8 @@ package mocks
 import "github.com/AdamCollins/ogre-net/internal/types"
 
 type AdRequest struct {
-	Target      types.NodeAddress
-	Advertising []types.NodeAddress
+	Target        types.NodeAddress
+	Advertisement []types.NodeAddress
 }
 
 // mock connection handler in which all requested contacted nodes respond to RPC calls
@@ -21,8 +21,8 @@ func (m *MockConnectionHandlerAllOnline) Listen(address types.NodeAddress) error
 
 func (m *MockConnectionHandlerAllOnline) Advertise(address types.NodeAddress, knownAddresses []types.NodeAddress) error {
 	ad := AdRequest{
-		Target:      address,
-		Advertising: knownAddresses,
+		Target:        address,
+		Advertisement: knownAddresses,
 	}
 	m.AdvertiseRequestLog = append(m.AdvertiseRequestLog, ad)
 

@@ -30,7 +30,7 @@ func (set *NodeSet) AddOnlineNodes(nodes []types.NodeAddress) {
 
 }
 
-func (set *NodeSet) GetOnlineNodes() []types.NodeAddress {
+func (set *NodeSet) GetNodes() []types.NodeAddress {
 	set.onlineNodeMX.RLock()
 	defer set.onlineNodeMX.RUnlock()
 
@@ -43,7 +43,7 @@ func (set *NodeSet) GetOnlineNodes() []types.NodeAddress {
 	return onlineNodeList
 }
 
-func (set *NodeSet) RemoveOnlineNode(nodes []types.NodeAddress) {
+func (set *NodeSet) RemoveOnlineNodes(nodes []types.NodeAddress) {
 	set.onlineNodeMX.Lock()
 	defer set.onlineNodeMX.Unlock()
 
