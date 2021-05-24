@@ -1,4 +1,4 @@
-package node
+package mocks
 
 import "github.com/AdamCollins/ogre-net/internal/types"
 
@@ -6,18 +6,20 @@ type AdRequest struct {
 	Target      types.NodeAddress
 	Advertising []types.NodeAddress
 }
-type MockConnectionHandler struct {
+
+// mock connection handler in which all requested contacted nodes respond to RPC calls
+type MockConnectionHandlerAllOnline struct {
 	ListenRequestLog    []types.NodeAddress
 	PingRequestLog      []types.NodeAddress
 	AdvertiseRequestLog []AdRequest
 }
 
-func (m *MockConnectionHandler) Listen(address types.NodeAddress) error {
+func (m *MockConnectionHandlerAllOnline) Listen(address types.NodeAddress) error {
 	m.ListenRequestLog = append(m.ListenRequestLog, address)
 	return nil
 }
 
-func (m *MockConnectionHandler) Advertise(address types.NodeAddress, knownAddresses []types.NodeAddress) error {
+func (m *MockConnectionHandlerAllOnline) Advertise(address types.NodeAddress, knownAddresses []types.NodeAddress) error {
 	ad := AdRequest{
 		Target:      address,
 		Advertising: knownAddresses,
@@ -27,7 +29,7 @@ func (m *MockConnectionHandler) Advertise(address types.NodeAddress, knownAddres
 	return nil
 }
 
-func (m *MockConnectionHandler) PingNode(address types.NodeAddress) error {
+func (m *MockConnectionHandlerAllOnline) PingNode(address types.NodeAddress) error {
 	m.PingRequestLog = append(m.PingRequestLog, address)
 	return nil
 }
