@@ -1,5 +1,4 @@
-# ogre-net
-https://www.youtube.com/watch?v=GZpcwKEIRCI
+
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -8,23 +7,17 @@ https://www.youtube.com/watch?v=GZpcwKEIRCI
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
 <!-- PROJECT LOGO -->
-<br />
+<!-- <br /> -->
 <!-- <p align="center">
   <a href="https://github.com/AdamCollins/ogre-net">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a> -->
 
-  <h3 align="center">ogre-net</h3>
+  <h1 align="center" style="font-size:3em">ogre-net</h3>
 
   <p align="center">
     <a href="https://youtu.be/-FtCTW2rVFM?t=20">'Ogres are like onions.'</a>
@@ -40,7 +33,18 @@ https://www.youtube.com/watch?v=GZpcwKEIRCI
   </p>
 </p>
 
+<!-- [![Forks][forks-shield]][forks-url]
 
+[![Stargazers][stars-shield]][stars-url]
+
+[![Issues][issues-shield]][issues-url]
+
+[![MIT License][license-shield]][license-url]
+
+[![LinkedIn][linkedin-shield]][linkedin-url] -->
+
+[![GitHub go.mod Go version of a Go module](https://img.shields.io/github/go-mod/go-version/AdamCollins/ogre-net.svg)](https://github.com/AdamCollins/ogre-net)
+[![Awesome Badges](https://img.shields.io/badge/status-development-blue.svg)](https://github.com/AdamCollins/ovre-net/issues)
 
 <!-- TABLE OF CONTENTS
 <details open="open">
@@ -72,7 +76,7 @@ https://www.youtube.com/watch?v=GZpcwKEIRCI
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
+ogre-net is a simple yet completely decentralized [onion routing](https://en.wikipedia.org/wiki/Onion_routing) network designed to help practice network programming, encryption, distributed systems and scalability.
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 Here's a blank template to get started:
@@ -119,21 +123,21 @@ This is an example of how to list things you need to use the software and how to
 
 
 
-<!-- USAGE EXAMPLES -->
+<!-- USAGE EXAMPLES
 ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+_For more examples, please refer to the [Documentation](https://example.com)_ -->
 
 
-
-<!-- ROADMAP -->
+<!-- 
+ROADMAP
 ## Roadmap
 
 See the [open issues](https://github.com/AdamCollins/ogre-net/issues) for a list of proposed features (and known issues).
 
-
+ -->
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -151,17 +155,17 @@ Contributions are what make the open source community such an amazing place to b
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License.
 
-
-<!-- ACKNOWLEDGEMENTS -->
+<!-- 
+ACKNOWLEDGEMENTS
 ## Acknowledgements
 
 * []()
 * []()
 * []()
 
-
+ -->
 
 
 
@@ -178,4 +182,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [license-shield]: https://img.shields.io/github/license/AdamCollins/repo.svg?style=for-the-badge
 [license-url]: https://github.com/AdamCollins/repo/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/AdamCollins
+[linkedin-url]: https://www.linkedin.com/in/adam-collins-dev/
