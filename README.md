@@ -76,7 +76,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-ogre-net is a simple yet completely decentralized [onion routing](https://en.wikipedia.org/wiki/Onion_routing) network designed to help practice network programming, encryption, distributed systems and scalability.
+ogre-net is a simple yet completely decentralized [onion routing](https://en.wikipedia.org/wiki/Onion_routing) network designed to help practice network programming, encryption, distributed systems, and scalability.
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 Here's a blank template to get started:
