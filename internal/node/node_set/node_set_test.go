@@ -56,7 +56,7 @@ func TestNodeSet_AddOnlineNodesOneAtATime(t *testing.T) {
 		t.Run(fmt.Sprintf("%v", test.input), func(t *testing.T) {
 			nodeset := NewNodeSet()
 			for _, addr := range test.input {
-				nodeset.AddOnlineNodes([]types.NodeAddress{addr})
+				nodeset.AddOnlineNode(addr)
 			}
 			result := nodeset.GetNodes()
 			if len(result) != len(test.expected) {
@@ -84,6 +84,54 @@ func TestNodeSet_NotInSet(t *testing.T) {
 
 			if !reflect.DeepEqual(test.expected, diff) {
 				t.Fatalf("%s, does not equal expected value %s", diff, test.expected)
+			}
+		})
+	}
+}
+
+type RemoveTest struct {
+	Initial  []types.NodeAddress
+	Remove   []types.NodeAddress
+	Expected []types.NodeAddress
+}
+
+func TestNodeSet_RemoveOnlineNodes(t *testing.T) {
+	tests := []RemoveTest{
+		{
+			[]types.NodeAddress{},
+			[]types.NodeAddress{},
+			[]types.NodeAddress{},
+		},
+		{
+			[]types.NodeAddress{":3001"},
+			[]types.NodeAddress{},
+			[]types.NodeAddress{":3001"},
+		},
+		{
+			[]types.NodeAddress{":3001", ":3002"},
+			[]types.NodeAddress{":3002"},
+			[]types.NodeAddress{":3001"},
+		},
+		{
+			[]types.NodeAddress{":3001"},
+			[]types.NodeAddress{":3003"},
+			[]types.NodeAddress{":3001"},
+		},
+		{
+			[]types.NodeAddress{},
+			[]types.NodeAddress{":3003"},
+			[]types.NodeAddress{},
+		},
+	}
+	for _, test := range tests {
+		t.Run(fmt.Sprintf("set:(%v) removing(%v), should return:%v", test.Initial, test.Remove, test.Expected), func(t *testing.T) {
+			nodeset := NewNodeSet()
+			nodeset.AddOnlineNodes(test.Initial)
+			nodeset.RemoveOnlineNodes(test.Remove)
+
+			diff := nodeset.GetNodes()
+			if !reflect.DeepEqual(test.Expected, diff) {
+				t.Fatalf("%s, does not equal expected value %s", diff, test.Expected)
 			}
 		})
 	}
