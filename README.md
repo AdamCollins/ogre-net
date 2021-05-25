@@ -121,7 +121,9 @@ This is an example of how to list things you need to use the software and how to
    ./build/node -id=<NodeID> -listen=<port to lisen on eg. :3001> -knows=<address of prexisting node eg. :3000 (leave blank if first) >
    ```
 
+## Documentation
 
+For documentation please refer to the docs folder or checkout this doc [here](https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=OgreNetArchitecture.drawio#Uhttps%3A%2F%2Fraw.githubusercontent.com%2FAdamCollins%2Fogre-net%2Fmain%2Fdocs%2FOgreNetArchitecture.drawio) for an overview.
 
 <!-- USAGE EXAMPLES
 ## Usage
