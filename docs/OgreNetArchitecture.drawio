@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-07-01T20:25:50.208Z" agent="5.0 (Windows)" etag="aUyop3bZo-F16XamD2zX" version="14.7.9" type="github">
+<mxfile host="app.diagrams.net" modified="2021-07-02T12:45:12.135Z" agent="5.0 (Windows)" etag="ZnARgV-cX9knYU12Rb5j" version="14.7.9" type="github">
   <diagram id="nww4abMtT4baYe-ESUv9" name="Page-1">
     <mxGraphModel dx="2272" dy="1862" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -415,7 +415,7 @@
           <mxGeometry x="-380" y="1810" width="150" height="30" as="geometry" />
         </mxCell>
         <mxCell id="D3KnmU7fyxJldwPck7-N-1" value="" style="shape=mxgraph.cisco.computers_and_peripherals.web_browser;html=1;pointerEvents=1;dashed=0;fillColor=#036897;strokeColor=#ffffff;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;" vertex="1" parent="1">
-          <mxGeometry x="138" y="1900" width="62" height="64" as="geometry" />
+          <mxGeometry x="198" y="1896" width="62" height="64" as="geometry" />
         </mxCell>
         <mxCell id="D3KnmU7fyxJldwPck7-N-2" value="Client" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
           <mxGeometry x="250" y="2050" width="470" height="180" as="geometry" />
@@ -430,7 +430,7 @@
           <mxGeometry y="78" width="470" height="102" as="geometry" />
         </mxCell>
         <mxCell id="D3KnmU7fyxJldwPck7-N-6" value="&lt;h1&gt;Client API &amp;amp; Stubs&lt;br&gt;&lt;/h1&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;font face=&quot;Lucida Console&quot;&gt;+ Start(knownSuperNode NodeAddress) : error &lt;/font&gt;&lt;br&gt;&lt;/li&gt;&lt;ul&gt;&lt;li&gt;Verifies knowNode is up by calling knownode.Ping()&lt;br&gt;&lt;/li&gt;&lt;ul&gt;&lt;li&gt;If fails to receive Pong back, func returns error&lt;/li&gt;&lt;/ul&gt;&lt;li&gt;stores node for future calls&lt;/li&gt;&lt;li&gt;TODO: Allow multiple known super nodes to be added that are randomly selected between&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;font face=&quot;Lucida Console&quot;&gt;- GetPath(n): []NodeAddress&lt;br&gt;&lt;/font&gt;&lt;/li&gt;&lt;ul&gt;&lt;li&gt;&lt;span&gt;Calls supernode.&lt;/span&gt;GetRandomNodeSubsetHandler(n)&lt;/li&gt;&lt;li&gt;takes a random subset of returned nodes and shuffles them to create a path&lt;/li&gt;&lt;li&gt;&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;&lt;font face=&quot;Lucida Console&quot;&gt;+ Send(plaintextMessage string) &lt;br&gt;&lt;/font&gt;&lt;/li&gt;&lt;ul&gt;&lt;li&gt;&lt;font face=&quot;Lucida Console&quot;&gt;(eg. plainTextMessage = &#39;GET google.com/index.html&#39;)&lt;br&gt;&lt;/font&gt;&lt;/li&gt;&lt;li&gt;calls GetPath(n) with n from config&lt;/li&gt;&lt;li&gt;calls onion.NewOnionMessage(plaintextMessage, path)&lt;/li&gt;&lt;li&gt;calls Send(onionMessage, path[0])&lt;/li&gt;&lt;li&gt;returns any response from exit node&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="-390" y="1940" width="540" height="400" as="geometry" />
+          <mxGeometry x="-360" y="1920" width="540" height="400" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
