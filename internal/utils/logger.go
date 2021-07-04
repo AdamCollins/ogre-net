@@ -8,14 +8,14 @@ package utils
 //	message:
 //}
 
-func LogInfo() {
-
-}
-
-func LogWarning() {
-
-}
-
-func LogError() {
-
-}
+//func LogInfo() {
+//
+//}
+//
+//func LogWarning() {
+//
+//}
+//
+//func LogError() {
+//
+//}

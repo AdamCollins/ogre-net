@@ -1,11 +1,13 @@
 package node
 
 import (
+	"github.com/AdamCollins/ogre-net/internal/onion"
 	"github.com/AdamCollins/ogre-net/internal/types"
 	"github.com/AdamCollins/ogre-net/mocks"
 	"github.com/stretchr/testify/assert"
 	"log"
 	"testing"
+	"time"
 )
 
 type TestResult struct {
@@ -82,22 +84,23 @@ func TestStart_NodesOnline(t *testing.T) {
 		t.Run(test.config.NodeId, func(t *testing.T) {
 			node := Node{}
 			// Creates a mock connection handler in which all requested contacted nodes respond to RPC calls
-			conHandler := mocks.MockConnectionHandlerAllOnline{}
+			conHandler := mocks.NodeMockConnectionHandler{OnlineNodes: []types.NodeAddress{":3000", ":3001", ":3002", ":3003", ":3004"}}
 			StartWithHandler(test.config, &conHandler, &node)
 
 			// test node was set up
 			assert.Equal(t, &conHandler, node.conHandler, "node's connection handler should be set")
 			assert.Equal(t, test.config.NodeId, node.NodeId, "node's NodeId should be set")
 			assert.Equal(t, test.config.ListenAddr, node.ListenAddr, "node's ListenAddr should be set")
-
+			//Wait for go routines to finish
+			time.Sleep(time.Millisecond * 30)
 			// test made correct calls to connectionHandler
 			assert.True(t, expectedNodeAddrSlice(test.expected.ListenRequests, conHandler.ListenRequestLog), "Listen request sent")
 
 			// should ping itself and any other online nodes
-			assert.True(t, expectedNodeAddrSlice(test.expected.PingResponses, conHandler.PingRequestLog))
+			assert.True(t, expectedNodeAddrSlice(test.expected.PingResponses, conHandler.PingResponseLog))
 
 			// should advertise to any online nodes but not to itself
-			assert.True(t, expectedAdRequests(test.expected.AdRequests, conHandler.AdvertiseRequestLog))
+			assert.True(t, expectedAdRequests(test.expected.AdRequests, conHandler.AdvertiseResponseLog))
 		})
 	}
 }
@@ -146,18 +149,18 @@ func TestStart_NoOnlineNodes(t *testing.T) {
 	for _, test := range testsNoNodesOnline {
 		t.Run(test.config.NodeId, func(t *testing.T) {
 			node := Node{}
-			// Creates a mock connection handler in which all requested contacted nodes fail to respond
-			conHandler := mocks.NewMockOffline(test.config.ListenAddr)
+			// Creates a mock connection handler in which all requested contacted nodes fail to respond except requests to self
+			conHandler := mocks.NodeMockConnectionHandler{OnlineNodes: []types.NodeAddress{":3001"}}
 			StartWithHandler(test.config, &conHandler, &node)
 
 			// test made correct calls to connectionHandler
 			assert.True(t, expectedNodeAddrSlice(test.expected.ListenRequests, conHandler.ListenRequestLog), "Listen request sent")
 
 			// should ping itself and any other online nodes
-			assert.True(t, expectedNodeAddrSlice(test.expected.PingResponses, conHandler.PingRequestLog))
+			assert.True(t, expectedNodeAddrSlice(test.expected.PingResponses, conHandler.PingResponseLog))
 
 			// should advertise to any online nodes but not to itself
-			assert.True(t, expectedAdRequests(test.expected.AdRequests, conHandler.AdvertiseRequestLog))
+			assert.True(t, expectedAdRequests(test.expected.AdRequests, conHandler.AdvertiseResponseLog))
 		})
 	}
 }
@@ -212,7 +215,7 @@ func TestStart_OneOnlineNode(t *testing.T) {
 		t.Run(test.config.NodeId, func(t *testing.T) {
 			node := Node{}
 			// Creates a mock connection handler in which all requested contacted nodes fail to respond
-			conHandler := mocks.NewMockOneOnline(test.config.ListenAddr)
+			conHandler := mocks.NodeMockConnectionHandler{OnlineNodes: []types.NodeAddress{":3001", ":3000"}}
 			StartWithHandler(test.config, &conHandler, &node)
 
 			// test made correct calls to connectionHandler
@@ -225,6 +228,75 @@ func TestStart_OneOnlineNode(t *testing.T) {
 			assert.True(t, expectedAdRequests(test.expected.AdRequests, conHandler.AdvertiseResponseLog))
 		})
 	}
+}
+func TestNode_GetRandomNodesSubset(t *testing.T) {
+	node := Node{}
+	config := Config{
+		NodeId:     "ThreeOnlineNodes",
+		KnownNodes: []types.NodeAddress{":3002", ":3003", ":3004"},
+		ListenAddr: ":3001",
+	}
+	// Creates a mock connection handler in which all requested contacted nodes respond to RPC calls
+	conHandler := mocks.NodeMockConnectionHandler{OnlineNodes: []types.NodeAddress{":3001", ":3002", ":3003", ":3004"}}
+	StartWithHandler(config, &conHandler, &node)
+
+	t.Run("Get 2 random", func(t *testing.T) {
+		nodes := node.GetRandomNodesSubset(2)
+		assert.Equal(t, 2, len(nodes))
+	})
+
+	t.Run("Get 3 random", func(t *testing.T) {
+		nodes := node.GetRandomNodesSubset(3)
+		assert.Equal(t, 3, len(nodes))
+	})
+
+	t.Run("Get 10 random", func(t *testing.T) {
+		nodes := node.GetRandomNodesSubset(10)
+		assert.Equal(t, 4, len(nodes))
+	})
+	t.Run("Get 4 random", func(t *testing.T) {
+		nodes := node.GetRandomNodesSubset(4)
+		assert.Equal(t, 4, len(nodes))
+	})
+
+	t.Run("Get 1 random", func(t *testing.T) {
+		nodes := node.GetRandomNodesSubset(1)
+		assert.Equal(t, 1, len(nodes))
+	})
+
+	t.Run("Get 0 random", func(t *testing.T) {
+		nodes := node.GetRandomNodesSubset(0)
+		assert.Equal(t, 0, len(nodes))
+	})
+
+}
+
+func TestNode_ReceiveMessage(t *testing.T) {
+	node := Node{}
+	conHandler := mocks.NodeMockConnectionHandler{
+		OnlineNodes: []types.NodeAddress{":3001", ":3002", ":3003", ":3004", ":3005", ":3006"},
+		Node:        &node,
+	}
+	StartWithHandler(Config{
+		NodeId:     "TestNode",
+		KnownNodes: []types.NodeAddress{":3002"},
+		ListenAddr: ":3001",
+	}, &conHandler, &node)
+
+	path := []types.NodeAddress{":3002", ":3003", ":3004", ":3005", ":3006"}
+	msg := onion.NewOnionMessage("test message", path)
+
+	response, _ := conHandler.ForwardMessage(msg, path[0])
+
+	// assert that all forward requests were made in correct order
+	assert.Equal(t, conHandler.ForwardRequestLog, path)
+
+	// assert that response message is encoded in correct order
+	for _, v := range path {
+		assert.Equal(t, response.NextHop, v)
+		response = onion.Peel(response)
+	}
+
 }
 
 //func TestNode_ReceiveAdvertisementNewNode(t *testing.T) {

@@ -2,6 +2,7 @@ package node
 
 import (
 	"github.com/AdamCollins/ogre-net/internal/node/node_set"
+	"github.com/AdamCollins/ogre-net/internal/onion"
 	"github.com/AdamCollins/ogre-net/internal/types"
 	"github.com/AdamCollins/ogre-net/internal/utils"
 	"log"
@@ -37,7 +38,7 @@ func Start(config Config) {
 	for {
 		select {
 		case <-ticker.C:
-			node.PingAllOnlineNodes()
+			//node.PingAllOnlineNodes()
 		}
 	}
 }
@@ -131,6 +132,51 @@ func (node *Node) PingAllOnlineNodes() {
 	if len(died) > 0 {
 		node.onlineNodes.RemoveOnlineNodes(died)
 	}
+}
+
+// returns a random slice of online nodes with a max length of n
+func (node *Node) GetRandomNodesSubset(n uint16) []types.NodeAddress {
+	nodes := node.onlineNodes.GetNodes()
+
+	nodes = utils.ShuffleNodes(nodes)
+
+	// return no more than n nodes
+	maxLen := utils.MinUInt16(uint16(len(nodes)), n)
+	return nodes[:maxLen]
+}
+
+// takes an OnionMessage, msg, and peels it by one layer.
+// If no more hops need to be made(NextLayer==nil) make request in payload.
+// 		- take the response from the payload and wrap it in an OnionMessage
+// Otherwise, forward to NextHop
+// 		- take response from the forward and add a layer to the message before responding with it.
+func (node *Node) ReceiveMessage(msg types.OnionMessage) types.OnionMessage {
+	log.Printf("[Node %v] received message: %v \n", node.NodeId, msg)
+	peeledMsg := onion.Peel(msg)
+	log.Printf("[Node %v] peeled out message: %v\n", node.NodeId, peeledMsg)
+
+	var response types.OnionMessage
+	if peeledMsg.NextLayer == nil {
+		// done. this is the exit node
+		log.Printf("[Node %v] received payload '%v'\n", node.NodeId, peeledMsg.Payload)
+		// handle request in payload
+		responseText := handleExitRequest(peeledMsg.Payload)
+		// create new onionMessage for response
+		response = onion.NewOnionMessage(responseText, []types.NodeAddress{node.ListenAddr})
+	} else {
+		// forward
+		log.Printf("[Node %v] forwarding message to %v'\n", node.NodeId, peeledMsg.NextHop)
+		response, _ = node.conHandler.ForwardMessage(peeledMsg, peeledMsg.NextHop)
+		// get response and self as next layer
+		response = onion.Layer(response, node.ListenAddr)
+	}
+
+	return response
+}
+
+func handleExitRequest(payload string) string {
+	//TODO
+	return "Made request " + payload
 }
 
 // pings provided nodes and returns a list of alive nodes and a list of dead nodes

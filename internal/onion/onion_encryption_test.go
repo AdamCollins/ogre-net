@@ -3,9 +3,12 @@ package onion
 import (
 	"fmt"
 	"github.com/AdamCollins/ogre-net/internal/types"
+	"github.com/stretchr/testify/assert"
 	"reflect"
 	"testing"
 )
+
+type OnionMessage = types.OnionMessage
 
 type OnionMessageTest struct {
 	payload  string
@@ -78,4 +81,42 @@ func TestNewOnionMessage(t *testing.T) {
 			t.Logf("Success: %v, does equal expected value %v", msg, test.expected)
 		})
 	}
+}
+
+func TestPeel(t *testing.T) {
+	// [input, expectedOutput]
+	tests := [][2]types.OnionMessage{
+		{
+			{
+				NextHop:   ":3001",
+				NextLayer: &OnionMessage{Payload: "GET", NextLayer: nil},
+			},
+			{Payload: "GET", NextLayer: nil},
+		},
+		{
+			{
+				NextHop: ":3002",
+				NextLayer: &OnionMessage{
+					NextHop:   ":3001",
+					NextLayer: &OnionMessage{Payload: "GET", NextLayer: nil},
+				},
+			},
+			{
+				NextHop:   ":3001",
+				NextLayer: &OnionMessage{Payload: "GET", NextLayer: nil},
+			},
+		},
+		{
+			{Payload: "GET", NextLayer: nil},
+			{Payload: "GET", NextLayer: nil},
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(fmt.Sprintf("init: %v. expected after peel: %v", test[0], test[1]), func(t *testing.T) {
+			out := Peel(test[0])
+			assert.Equal(t, test[1], out)
+		})
+	}
+
 }

@@ -9,4 +9,5 @@ type INodeConnectionHandler interface {
 	Listen(address NodeAddress) error
 	Advertise(address NodeAddress, knownAddresses []NodeAddress) error
 	PingNode(address NodeAddress) error
+	ForwardMessage(msg OnionMessage, address NodeAddress) (OnionMessage, error)
 }
